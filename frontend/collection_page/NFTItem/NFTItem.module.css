@@ -1,0 +1,133 @@
+.NFTItem {
+    width: 80%;
+    margin: 5rem auto 14rem;
+  
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    margin-bottom: 14rem;
+  }
+  
+  .NFTItem_box {
+    /* display: grid; */
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+    border-radius: 1rem;
+  }
+  
+  .NFTItem_box:hover {
+    box-shadow: var(--box-shadow);
+  }
+  
+  .NFTItem_box_like {
+    padding: 1rem;
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    z-index: 111111;
+  }
+  
+  .NFTItem_box_like_box_box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .NFTItem_box_like_box_box_icon {
+    color: var(--icons-color);
+    font-size: 2rem;
+  }
+  
+  .NFTItem_box_like_box_box p {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+    background-color: var(--icons-color);
+    color: var(--main-bg-color);
+    border-radius: 2rem;
+    padding: 0 0.5rem;
+  }
+  
+  .NFTItem_box_img {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+  }
+  
+  .NFTItem_box_img_img {
+    border-radius: 1rem;
+    width: 100%;
+    height: auto;
+  }
+  
+  .NFTItem_box_info {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+  
+  .NFTItem_box_info_left {
+    line-height: 0;
+  }
+  
+  
+  .NFTItem_box_info_left p {
+    font-size: 2rem;
+    font-weight: 900;
+  }
+  
+  .NFTItem_box_price {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    line-height: 0;
+    padding: 1rem;
+  }
+  
+  .NFTItem_box_price_box p {
+    border: 1px solid var(--icons-color);
+    padding: 1.5rem 1rem 1rem 1rem;
+    font-size: 1.4rem;
+    margin-top: 0.5rem;
+    border-radius: 0.3rem;
+  }
+  
+  .NFTItem_box_price_box small {
+    background-color: var(--icons-color);
+    color: var(--main-bg-color);
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+    margin-left: 1rem;
+  }
+  
+  .NFTItem_box_price_stock {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+  }
+  
+  @media screen and (max-width: 35em) {
+    .NFTItem {
+      width: 90%;
+      grid-template-columns: 1fr;
+    }
+    .NFTItem_box_info {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 25em) {
+    .NFTItem_box {
+      width: 50%;
+    }
+    .NFTItem_box_info {
+      width: 100%;
+    }
+  }
+  
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .NFTItem {
+      width: 90%;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
