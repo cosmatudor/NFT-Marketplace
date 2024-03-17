@@ -10,7 +10,7 @@ const NFTCard = ({ NFTData }) => {
 
     return (
         <div className={Style.NFTCard}>
-            {NFTData.reverse().slice(-3).map((nft, index) => (
+            {NFTData?.slice(-3).map((nft, index) => (
                 <Link href={{ pathname: "/nft_details", query: nft }} >
                     <div className={Style.NFTCard_box} key={index+1}>
                         <div className={Style.NFTCard_box_img}> 

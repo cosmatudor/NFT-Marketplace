@@ -19,7 +19,7 @@ const Service = () => {
           <p className={Style.service_box_item_step}>
             <span>Step 1</span>
           </p>
-          <h3>Filter & Discover</h3>
+          <h3>Connect Wallet</h3>
           <p>
             Connect with wallet, discover, buy NTFs, sell your NFTs and earn
             money
@@ -33,9 +33,9 @@ const Service = () => {
             height={100}
           />
           <p className={Style.service_box_item_step}>
-            <span>Step 1</span>
+            <span>Step 2</span>
           </p>
-          <h3>Filter & Discover</h3>
+          <h3>Create your own NFTs</h3>
           <p>
             Connect with wallet, discover, buy NTFs, sell your NFTs and earn
             money
@@ -49,9 +49,9 @@ const Service = () => {
             height={100}
           />
           <p className={Style.service_box_item_step}>
-            <span>Step 1</span>
+            <span>Step 3</span>
           </p>
-          <h3>Connect Wallet</h3>
+          <h3>Filter & Discover</h3>
           <p>
             Connect with wallet, discover, buy NTFs, sell your NFTs and earn
             money
@@ -65,7 +65,7 @@ const Service = () => {
             height={100}
           />
           <p className={Style.service_box_item_step}>
-            <span>Step 1</span>
+            <span>Step 4</span>
           </p>
           <h3>Start trading</h3>
           <p>

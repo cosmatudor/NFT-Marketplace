@@ -12,7 +12,7 @@ const Home = () => {
 
   useEffect(() => {
     fecthNFTs().then((data) => {
-      setNfts(data.reverse());
+      setNfts(data?.reverse());
       setNftsCopy(data);
     });
   }, [])
