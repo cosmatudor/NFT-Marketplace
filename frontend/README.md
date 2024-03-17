@@ -1,1 +1,3 @@
 # Frontend
+
+A NextJS app
