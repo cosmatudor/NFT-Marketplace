@@ -1,0 +1,18 @@
+.title {
+    width: 100%;
+}
+
+.title_box {
+    width: 80%;
+    margin: 0 auto; /* Center the title_box horizontally */
+    text-align: center; /* Center the text within title_box */
+}
+
+.title_box h2 {
+    font-size: 5rem;
+    line-height: 0;
+}
+
+.title_box p {
+    font-size: 1.5rem;
+}

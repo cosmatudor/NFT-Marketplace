@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {BsSearch} from "react-icons/bs";
-import { FaUserCircle } from 'react-icons/fa';
+import { useRouter } from "next/router";
 
 import Style from "./NavBar.module.css";
 import { Profile } from "./index";
@@ -15,16 +15,8 @@ import { NFTMarketplaceContext } from "../../context/NFTMarketplaceContext";
 const NavBar = () => {
     const [ profile, setProfile ] = useState(false);
 
-    // const router = useRouter();
+    const router = useRouter();
     const { currentAccount, connectWallet } = useContext(NFTMarketplaceContext);
-
-    const openProfile = () => {
-        if (!profile) {
-            setProfile(true);
-        } else {
-            setProfile(false);
-        }
-    }
 
     return (
         <div className={Style.navbar}>
@@ -35,15 +27,9 @@ const NavBar = () => {
 
                     {/* // Logo */}
                     <div className={Style.logo}>
-                        <Image src={images.logo} alt="NFT MARKETPLACE" width={100} height={100} />
-                    </div>
-
-                    {/* // Search Bar */}
-                    <div className={Style.navbar_container_left_box_input}>
-                        <div className={Style.navbar_container_left_box_input_box}>
-                            <input type="text" placeholder="Search NFT"/> 
-                            <BsSearch onClick={() => {}} className={Style.search_icon}/>
-                        </div>
+                        <Link href={{ pathname: "/"}}>
+                            <Image src={images.logo} alt="NFT MARKETPLACE" width={120} height={120} />
+                        </Link>
                     </div>
 
                 </div>
@@ -55,16 +41,14 @@ const NavBar = () => {
                     <div className={Style.navbar_container_right_profile_box}>
                         <div className={Style.navbar_container_right_profile}>
                             {currentAccount && 
-                             <Link href={{ pathname: "/user_profile"}}>
                                 <Image
                                     src={images.profile_icon}
                                     alt="Profile"
                                     width={40}
                                     height={40}
-                                    onClick={() => openProfile()}
+                                    onClick={() => router.push(`/user_profile?account=${currentAccount}`)}
                                     className={Style.navbar_container_right_profile}
                                 />
-                             </Link>
                             }       
                         </div>
                     </div>
@@ -74,11 +58,8 @@ const NavBar = () => {
                         {currentAccount == "" ?
                             <Button btnName="Connect" handleClick={() => connectWallet()}/>
                             :
-                            <Link href="/upload_nft">
-                                <a>
-                                    <Button btnName="Create" handleClick={() => {}}/>
-                                </a>
-                            </Link>
+
+                            <Button btnName="Create" handleClick={() => router.push("/upload_nft")}/>
                         }
                     </div>
                 </div>

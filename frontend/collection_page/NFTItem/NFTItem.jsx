@@ -25,7 +25,7 @@ const NFTItem = ({ NFTData }) => {
 
                     <div className={Style.NFTItem_box_info}>
                         <div className={Style.NFTItem_box_info_left}> 
-                            <p>{item.name} #{item.tokenId.toString()}</p>
+                            <p>{item.name}</p>
                         </div>
                     </div>
 

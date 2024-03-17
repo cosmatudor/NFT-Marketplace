@@ -1,20 +1,11 @@
 import React, { useState, useContext } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import {
-  MdVerified,
-  MdCloudUpload,
-  MdTimer,
-  MdReportProblem,
-  MdOutlineDeleteSweep,
-} from "react-icons/md";
-import { BsThreeDots } from "react-icons/bs";
-import { BiTransferAlt, BiDollar } from "react-icons/bi";
+import { MdVerified, MdTimer } from "react-icons/md";
+
 
 //INTERNAL IMPORT
 import Style from "./NFTDescription.module.css";
-import images from "../../img";
 import { Button } from "../../components/ComponentsIndex.js";
 
 //IMPORT SMART CONTRACT
@@ -25,32 +16,28 @@ const NFTDescription = ({ nft }) => {
 
   const router = useRouter();
 
+  const addressZero = "0x0000000000000000000000000000000000000000";
+
   return (
     <div className={Style.NFTDescription}>
       <div className={Style.NFTDescription_box}>
 
         <div className={Style.NFTDescription_box_profile}>
           <h1>
-            {nft.name} #{nft.tokenId}
+            {nft.name}
           </h1>
           <div className={Style.NFTDescription_box_profile_box}>
             
             <div className={Style.NFTDescription_box_profile_box_left}>
-              <Image
-                src={images.user1}
-                alt="profile"
-                width={40}
-                height={40}
-                className={Style.NFTDescription_box_profile_box_left_img}
-              />
               <div className={Style.NFTDescription_box_profile_box_left_info}>
-                <small>Creator</small> <br />
-                {/* <Link href={{ pathname: "/author", query: `${nft.seller}` }}> */}
-                <Link href={{ pathname: "/author" }}>
-                  <span>
-                    Karli Costa <MdVerified />
+                <small>Owner</small> <br />
+                  <span onClick={() => router.push(`/user_profile?account=${nft.owner == addressZero ?
+                      nft.seller : nft.owner}`)}>
+                    {
+                      nft.owner == addressZero ?
+                      nft.seller : nft.owner
+                    } <MdVerified />
                   </span>
-                </Link>
               </div>
             </div>
           </div>
@@ -116,13 +103,13 @@ const NFTDescription = ({ nft }) => {
               ) : currentAccount == nft.owner.toLowerCase() ? (
                 <Button
                   btnName="List on Marketplace"
-                  handleClick={() => {}}
+                  handleClick={() => router.push(`/sellingPage?id=${nft.tokenId}&tokenURI=${nft.tokenURI}`)}
                   classStyle={Style.button}
                 />
               ) : (
                 <Button
                   btnName="Buy NFT"
-                  handleClick={async () => {await buyNFT(nft); router.push("/user_profile");}}
+                  handleClick={async () => {await buyNFT(nft); router.push(`/user_profile?account=${currentAccount}`);}}
                   classStyle={Style.button}
                 />
               )}

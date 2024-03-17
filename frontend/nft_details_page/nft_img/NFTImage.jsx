@@ -3,7 +3,7 @@ import Image from "next/image";
 import {TiArrowSortedDown, TiArrowSortedUp} from "react-icons/ti";
 
 import Style from './NFTImage.module.css';
-import images from "../../img";
+import { NFTMarketplaceAddress } from "../../context/constants.js"
 
 const NFTImage = ({ nft }) => {
   const [description, setDescription] = useState(true);
@@ -64,15 +64,14 @@ const NFTImage = ({ nft }) => {
 
         {details && (
           <div className={Style.NFTDetailsImg_box_details_box}>
-            {/* <small>2000 x 2000 px.IMAGE(685KB)</small> */}
             <p>
               <small>Contract Address</small>
               <br></br>
-              {nft.seller}
+              {NFTMarketplaceAddress}
             </p>
             <p>
-              <small>Token ID</small>
-              &nbsp; &nbsp; {nft.tokenId}
+              <small>Token ID:</small>
+              &nbsp; {nft.tokenId}
             </p>
           </div>
         )}

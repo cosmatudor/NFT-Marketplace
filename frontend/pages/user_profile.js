@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
+import { useRouter } from "next/router";
 
 //INTERNAL IMPORT
 import Style from "../styles/user_profile.module.css";
 // import { Banner, NFTCardTwo } from "../collectionPage/collectionIndex";
-// import { Title } from "../components/componentsindex";
+import { Title } from "../components/ComponentsIndex";
 import { NFTItem } from "../collection_page/collectionIndex";
 
 //IMPORT SMART CONTRACT 
@@ -11,6 +12,9 @@ import { NFTMarketplaceContext } from "../context/NFTMarketplaceContext";
 
 const userProfile = () => {
     const { fetchSoldOrUnsoldTokensByOwner } = useContext(NFTMarketplaceContext);
+
+    const router = useRouter();
+    const { account } = router.query;
 
     const [myNFTs, setMyNFTs] = useState([]);
 
@@ -26,7 +30,7 @@ const userProfile = () => {
 
     return (
         <div className={Style.author}>
-            {/* <Banner bannerImage={images.creatorbackground2} /> */}
+            <Title heading="Owned NFTs by:" paragraph={account} />
             <NFTItem NFTData={myNFTs} />
         </div>
     );
