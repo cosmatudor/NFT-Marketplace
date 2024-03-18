@@ -17,8 +17,8 @@ const NFTItem = ({ NFTData }) => {
                             src={item.image}
                             alt="NFT"
                             className={Style.NFTItem_box_img_img} 
-                            width={500} 
-                            height={500} 
+                            width={600} 
+                            height={600} 
                             objectFit="cover" 
                         />
                     </div>
