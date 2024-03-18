@@ -31,12 +31,9 @@ const NFTDescription = ({ nft }) => {
             <div className={Style.NFTDescription_box_profile_box_left}>
               <div className={Style.NFTDescription_box_profile_box_left_info}>
                 <small>Owner</small> <br />
-                  <span onClick={() => router.push(`/user_profile?account=${nft.owner == addressZero ?
-                      nft.seller : nft.owner}`)}>
-                    {
-                      nft.owner == addressZero ?
-                      nft.seller : nft.owner
-                    } <MdVerified />
+                  <span onClick={() => router.push(`/user_profile?account=${nft.seller == addressZero ?
+                      nft.owner : nft.seller}`)}>
+                    {nft.seller == addressZero ? nft.owner : nft.seller} <MdVerified />
                   </span>
               </div>
             </div>

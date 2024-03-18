@@ -137,21 +137,3 @@
     }
   }
   
-
-  /* Media query for smaller resolutions */
-@media screen and (max-width: 35em) {
-  .NFTItem_box_price_box p {
-    /* Adjust padding or font-size here if necessary */
-    padding: 1rem 0.5rem;
-    font-size: 1.2rem;
-  }
-}
-
-/* Media query for even smaller resolutions */
-@media screen and (max-width: 25em) {
-  .NFTItem_box_price_box p {
-    /* Adjust padding or font-size here if necessary */
-    padding: 0.5rem 0.25rem;
-    font-size: 1rem;
-  }
-}
