@@ -106,8 +106,6 @@ export const NFTMarketplaceProvider = ({ children }) => {
             console.log("description: " + description);
         }
         else {
-            console.log("PULA")
-
             const data = JSON.stringify({ name, description, image });
 
             try {
